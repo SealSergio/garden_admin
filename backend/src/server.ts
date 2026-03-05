@@ -5,7 +5,7 @@ import cors from 'cors';
 import {
   authRouter,
   adminsRouter,
-  booksRouter
+  productsRouter
 }  from './routes/index.js';
 
 const server = express();
@@ -18,4 +18,4 @@ server.use(json(), cookieParser(), cors());
 
 server.use('/auth', authRouter);
 server.use('/admins', adminsRouter);
-server.use('/books', booksRouter);
+server.use('/products', productsRouter);

@@ -11,32 +11,11 @@ export const Aside: FC = () => {
                 </button>
                 <ul className="aside-menu">
                     <li className="aside-menu__item">
-                    <Link to={"/books"}>
+                    <Link to={"/products"}>
                         <button className="aside-menu__btn">
-                            Книги
+                            Изделия
                         </button>
                     </Link>
-                    </li>
-                    <li className="aside-menu__item">
-                        <Link to={"/authors"}>
-                            <button className="aside-menu__btn">
-                                Авторы
-                            </button>
-                        </Link>
-                    </li>
-                    <li className="aside-menu__item">
-                        <Link to={"/cycles"}>
-                            <button className="aside-menu__btn">
-                                Циклы
-                            </button>
-                        </Link>
-                    </li>
-                    <li className="aside-menu__item">
-                        <Link to={"/genres"}>
-                            <button className="aside-menu__btn">
-                                Жанры
-                            </button>
-                        </Link>
                     </li>
                     <li className="aside-menu__item">
                         <Link to={"/support"}>

@@ -15,24 +15,10 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
     --middle-radius: 15px;
     --small-radius: 6px;
     --page-padding: 45px;
-}
-
-:root:not(.dark-mode) {
-    color-scheme: light;
-
-    --lightest-grey: #fbfbfb;
-    --light-grey: #e6e6e6;
-    --dark-grey: #3d3d3d;
-    --darkest-grey: #1e1e1e;
-}
-
-html.dark-mode {
-    color-scheme: dark;
-
-  --lightest-grey: #1e1e1e;
-  --light-grey: #3d3d3d;
-  --dark-grey: #e6e6e6;
-  --darkest-grey: #fbfbfb;
+    --lightest-grey: #1e1e1e;
+    --light-grey: #3d3d3d;
+    --dark-grey: #e6e6e6;
+    --darkest-grey: #fbfbfb;
 }
 
 // Сброс стилей

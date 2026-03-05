@@ -3,14 +3,10 @@ import { logout } from "../../../features/auth/api/auth";
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../../../app/queryClient";
 import "./Header.scss";
-import { setNewMode } from "../../../shared/lib/mode/mode";
 
 export const Header: FC = () => {
     // handleClickOnBtnUser();
 
-    function handleClickOnBtnMode() {
-        setNewMode();
-    }
 
     function handleClickOnBtnExit() {
         logout();
@@ -32,7 +28,7 @@ export const Header: FC = () => {
         <header className="header">
         <div className="container container--header">
             <h1 className="header__title">
-            <a href="#" target="_blank">Книжный дом</a>
+            <a href="#" target="_blank">Музыка камня</a>
             </h1>
             <div className="header__btns-right">
             <button
@@ -40,12 +36,6 @@ export const Header: FC = () => {
                 className="header__btn header__btn--user btn-reset"
             >
                 Выйти
-            </button>
-            <button
-                onClick={()=>handleClickOnBtnMode()}
-                className="header__btn header__btn--mode btn-reset"
-            >
-                Тема
             </button>
             </div>
         </div>

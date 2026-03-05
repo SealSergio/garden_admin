@@ -1,10 +1,4 @@
-export * from "./books/Books.js";
-
-export * from "./books/Authors.js";
-
-export * from "./books/Genres.js";
-
-export * from "./books/Cycles.js";
+export * from "./products/Products.js";
 
 export * from "./admins/Admins.js";
 

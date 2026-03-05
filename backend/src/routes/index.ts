@@ -1,6 +1,4 @@
-export { booksParentRouter as booksRouter } from "./books/index.js";
-
-// export { usersParentRouter as usersRouter } from "./users/index.js";
+export { productsRouter } from "./products/products.js";
 
 export { authRouter } from "./auth.js";
 
