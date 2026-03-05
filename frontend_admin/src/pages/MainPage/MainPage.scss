@@ -1,0 +1,10 @@
+.container--admin-inner {
+    position: relative;
+    display: flex;
+    min-height: calc(100vh - 80px); // Сие есть костыль великий и ужасный
+    height: 100%;
+}
+
+.main {
+    width: 100%;
+}

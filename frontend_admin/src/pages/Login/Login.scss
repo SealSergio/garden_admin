@@ -1,0 +1,52 @@
+// Окно входа
+
+.login-window {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background-color: var(--lightest-grey);
+}
+
+.login-window__content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    max-height: 500px;
+    display: block;
+    padding: 45px 30px;
+    outline: 1px solid var(--middle-grey);
+    border-radius: var(--big-radius);
+    transform: translate(-50%, -50%);
+    background-color: var(--light-grey);
+}
+
+.login-window__title {
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: var(--darkest-grey);
+    text-align: center;
+}
+
+.login-window__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-window__label {
+    margin-bottom: 18px;
+
+    &:last-of-type {
+        margin-bottom: 30px;
+    }
+}
+
+.login-window__input {
+    width: 300px;
+}

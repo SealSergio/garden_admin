@@ -1,0 +1,52 @@
+.footer {
+  padding: 15px 0;
+  position: relative;
+  z-index: 2;
+  background-color: var(--brown);
+  background-image: url('../img/products.png');
+  background-position: center top 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__text {
+  width: 60%;
+  font-size: 12px;
+  color: var(--lightest);
+}
+
+.footer__info {
+  max-width: 300px;
+}
+
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-width: 120px;
+}
+
+.footer__logo {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.footer__rights {
+  text-align: left;
+  width: 100%;
+}
+
+.footer__rights:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.footer__link_sergio {
+  font-weight: 400;
+  color: var(--lightest);
+}

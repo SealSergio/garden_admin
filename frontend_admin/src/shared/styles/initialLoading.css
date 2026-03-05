@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+.initialLoading {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.initialLoading span {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}

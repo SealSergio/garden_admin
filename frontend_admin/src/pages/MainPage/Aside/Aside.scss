@@ -1,0 +1,35 @@
+.aside {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: var(--light-grey);
+    // border-top: 1px solid var(--middle-grey);
+    // border-right: 1px solid var(--middle-grey);
+}
+
+.aside__inner {
+    position: sticky;
+    top: 0;
+    padding-top: 15px;
+}
+
+.aside__btn-close {
+
+}
+
+.aside-menu__btn {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-weight: 500;
+    color: var(--darkest-grey);
+    background-color: transparent;
+
+    &:hover, &:active {
+        background-color: var(--gold);
+    }
+}

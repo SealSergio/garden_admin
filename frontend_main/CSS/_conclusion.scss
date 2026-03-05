@@ -1,0 +1,50 @@
+.conclusion__background-img {
+  position: absolute;
+  z-index: 4;
+  bottom: -20px;
+  width: 100%;
+  max-height: 50px;
+}
+
+.conclusion {
+  position: relative;
+  z-index: 0;
+  min-width: 100%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 20%;
+}
+
+.conclusion__container {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  bottom: 0;
+  background-color: var(--lightest);
+}
+
+.conclusion__title {
+  margin: 0;
+  margin-bottom: 15px;
+  margin-left: 40px;
+  padding: 0 25px 10px 25px;
+  display: inline-block;
+  background-image: url('../img/underline.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+  overflow: visible;
+  color: var(--brown);
+}
+
+.conclusion__text {
+  margin-bottom: 20px;
+  width: 75%;
+}
+
+.conclusion__text_2 {
+  margin-right: 0;
+  margin-left: auto;
+  width: 60%;
+}

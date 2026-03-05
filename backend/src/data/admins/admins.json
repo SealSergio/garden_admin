@@ -1,0 +1,14 @@
+{
+  "root": {
+    "login": "root",
+    "surname": "root",
+    "name": "root",
+    "accessLevel": "root"
+  },
+  "guest": {
+    "login": "guest",
+    "surname": "guest",
+    "name": "guest",
+    "accessLevel": "guest"
+  }
+}

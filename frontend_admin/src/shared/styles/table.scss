@@ -1,0 +1,22 @@
+.table-wrapper {
+    padding: 30px;
+    background-color: var(--light-grey);
+    border-radius: var(--big-radius);
+    width: 100%;
+}
+
+.table {
+    margin: 0 auto;
+    max-width: 100%;
+    color: var(--darkest-grey);
+    border-collapse: collapse;
+
+    & tbody tr:hover {
+        background-color: var(--gold);
+    }
+
+    & th, & td {
+        border: 1px solid var(--darkest-grey);
+        padding: 10px 15px;
+    }
+}

@@ -1,0 +1,117 @@
+.contacts {
+  padding-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  min-width: 100%;
+  background-color: var(--light);
+  padding-top: 30px;
+  background-image: url('../img/contacts.jpg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100% 90%;
+  scroll-margin-block-start: 70px;
+}
+
+@media(min-width: 481px) {
+  .contacts {
+    scroll-margin-block-start: 120px;
+  }
+}
+
+.contacts__container {
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.contacts__title {
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding: 0 25px 6px 15px;
+  display: inline-block;
+  background-image: url('../img/underline.png');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+  overflow: visible;
+}
+
+.contacts__text {
+  margin-bottom: 20px;
+  width: 70%;
+  color: var(--lightest);
+}
+
+.contacts__address {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+@media(min-width: 540px) {
+  .contacts__address {
+    margin-left: 20px;
+  }
+}
+
+.contacts__link {
+  position: relative;
+  padding: 5px;
+  padding-left: 30px;
+  font-style: normal;
+  font-weight: 200;
+  color: var(--lightest);
+  transition: color 0.2s;
+}
+
+.contacts__link:hover {
+  color: var(--light);
+}
+
+.contacts__link:active {
+  color: var(--light);
+}
+
+.contacts__link::before {
+  content: "";
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: contain;
+  opacity: 0.4;
+  position: absolute;
+  z-index: 2;
+  top: 3px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  transition: opacity 0.2s;
+}
+
+.contacts__link:hover::before {
+  opacity: 0.8;
+}
+
+.contacts__link:active::before {
+  opacity: 1;
+}
+
+.contacts__link_tel::before {
+  background-image: url('../img/graphics/contacts-icon-1.png');
+}
+
+.contacts__link_telegram::before {
+  background-image: url('../img/graphics/contacts-icon-2.png');
+}
+
+.contacts__link_mail::before {
+  background-image: url('../img/graphics/contacts-icon-3.png');
+}
+
+.contacts__swan {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: -20px;
+  max-width: 40%;
+  max-height: 80%;
+}

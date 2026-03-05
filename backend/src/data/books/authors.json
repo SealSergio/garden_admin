@@ -1,0 +1,26 @@
+[
+    {
+        "id": "001",
+        "surname": "Толстой",
+        "name": "Лев",
+        "secondName": "Николаевич",
+        "fullname": "Лев Николаевич Толстой",
+        "abbreviatedName": "Л. Н. Толстой"
+    },
+    {
+        "id": "002",
+        "surname": "Пушкин",
+        "name": "Александр",
+        "secondName": "Сергеевич",
+        "fullname": "Пушкин Александр Сергеевич",
+        "abbreviatedName": "А. С. Пушкин"
+    },
+    {
+        "id": "003",
+        "surname": "Чехов",
+        "name": "Антон",
+        "secondName": "Павлович",
+        "fullname": "Антон Павлович Чехов",
+        "abbreviatedName": "А. П. Чехов"
+    }
+]
