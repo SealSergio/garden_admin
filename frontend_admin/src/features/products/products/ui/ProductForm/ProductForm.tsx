@@ -5,20 +5,18 @@ import { Link } from 'react-router-dom';
 import TextareaAutosize from "react-textarea-autosize";
 import "./ProductForm.scss";
 import { ProductList, ProductSchema, Product } from '../../../../../entities/product/model/Product';
-import { getNewProduct, setNewProduct } from '../../api/localStorage';
+import { getProduct, setProduct } from '../../api/localStorage';
 
 interface ProductFormProps {
     products: ProductList,
 }
 
 export const ProductForm: React.FC<ProductFormProps> = ({ products }) => {
-    const newProduct = getNewProduct();
+    const product = getProduct();
     
-    const [newProductId, setNewProductId] = useState<string | null>(newProduct?.id || null);
-    const [newProductTitle, setNewProductTitle] = useState<string | null>(newProduct?.title || null);
-    const [newProductDescription, setNewProductDescription] = useState<string>(newProduct?.description || "");
-
-    const [showIdMessage, setShowIdMessage] = useState(false);
+    const productId = product?.id || null;
+    const [productTitle, setProductTitle] = useState<string | null>(product?.title || null);
+    const [productDescription, setProductDescription] = useState<string[]>(product?.description || [""]);
 
     const isInitialMount = useRef(true);
 
@@ -26,13 +24,30 @@ export const ProductForm: React.FC<ProductFormProps> = ({ products }) => {
         if (isInitialMount.current) {
             isInitialMount.current = false;
         } else {
-            setNewProduct({
-                id: newProductId,
-                title: newProductTitle,
-                description: newProductDescription
+            setProduct({
+                id: productId,
+                title: productTitle,
+                description: productDescription
             });
         }
-    }, [newProductTitle, newProductDescription ]);
+    }, [productTitle, productDescription ]);
+
+    function setDescription(description: string, index: number) {
+        setProductDescription(productDescription.with(index, description));
+    }
+
+    function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            createNewString();
+        }
+    }
+
+    function createNewString() {
+        if (productDescription.at(-1) !== "") {
+            setProductDescription([...productDescription, ""]);
+        }
+    }
 
     const {register, handleSubmit, setValue, formState: { errors }} = useForm({
         resolver: zodResolver(ProductSchema),
@@ -69,47 +84,37 @@ export const ProductForm: React.FC<ProductFormProps> = ({ products }) => {
             <form className="product-form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="product-form__half product-form__half--left">
                     <label className="form__label product-form__label">
-                        <span className="form__label__title">
-                            {showIdMessage ? "ID генерируется автоматически" : " ID"}
-                        </span>
-                        <input
-                            className="form__input product-form__input product-form__input--id"
-                            type="text"
-                            placeholder="ID"
-                            readOnly
-                            {...register("id")}
-                            value={newProductId ? newProductId : ""}
-                            onMouseEnter={() => setShowIdMessage(true)}
-                            onMouseLeave={() => setShowIdMessage(false)}
-                        />
-                    </label>
-                    <label className="form__label product-form__label">
-                        <span className="form__label__title">Заголовок</span>
+                        <span className="form__label__title">Название</span>
                         <input
                             className="form__input product-form__input"
-                            type="text" placeholder="Заголовок"
+                            type="text" placeholder="Название"
                             {...register("title")}
-                            value={newProductTitle || ""}
-                            onInput={(event) => setNewProductTitle(event.currentTarget.value)}
+                            value={productTitle || ""}
+                            onInput={(event) => setProductTitle(event.currentTarget.value)}
                         />
-                        {errors.title && <p>Заголовок должен содержать не менее 1 символа</p>}
+                        {errors.title && <p>Название должно содержать не менее 1 символа</p>}
                     </label>
-                </div>
-                <div className="product-form__half">
-                    <div className="product-form__img">Загрузите фото</div>
                     <label className="form__label product-form__label">
                         <span className="form__label__title">Описание</span>
-                        <div className="input-descr-wrapper">
-                            <TextareaAutosize
-                                className="form__input product-form__input textarea-descr"
-                                placeholder="Описание"
-                                {...register("description")}
-                                maxRows={8}
-                                value={newProductDescription}
-                                onInput={(event) => setNewProductDescription(event.currentTarget.value)}
-                            />
+                        <div className="product-form__description">
+                            {productDescription?.map((text, index)=> (
+                                <input
+                                    className="form__input product-form__input"
+                                    key={index}
+                                    placeholder="Текст"
+                                    onKeyDown={(event) => handleKeyDown(event)}
+                                    onInput={(event) => setDescription(event.currentTarget.value, index)}
+                                    value={text || ""}
+                                    >
+                                </input>
+                            ))}
                         </div>
-                        {errors.description && <p>Описание должно содержать не менее 20 символов</p>}
+                        <button
+                            className="form__btn product-form__btn-add"
+                            type="button"
+                            onClick={() => createNewString()}>
+                            +
+                        </button>
                     </label>
                     <button
                         className="form__btn form__btn--submit"
@@ -121,6 +126,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({ products }) => {
                         Удалить
                     </button>
                 </div>
+                {/* <div className="product-form__half">
+                    <div className="product-form__img">Загрузите фото</div>
+                </div> */}
             </form>
         </div>
     )

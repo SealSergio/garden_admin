@@ -1,10 +1,9 @@
 import { z } from "zod";
 
 export const ProductSchema = z.object({
-    id: z.string().length(5),
+    id: z.string().length(3),
     title: z.string().min(1),
-    authorId: z.string().length(3),
-    description: z.string().min(20)
+    description: z.array(z.string()).optional(),
 });
 
 export type Product = z.infer<typeof ProductSchema>;

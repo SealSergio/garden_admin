@@ -1,0 +1,15 @@
+.icon {
+  display: block;
+  margin: 0 auto;
+  padding: 7px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.icon g {
+  fill: var(--darkest-grey);
+}
+.icon:hover {
+  cursor: pointer;
+  outline: 1px solid #fff;
+}/*# sourceMappingURL=Icon.css.map */

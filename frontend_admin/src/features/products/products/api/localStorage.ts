@@ -3,10 +3,10 @@ import { Product } from "../../../../entities/product/model/Product";
 
 type NewProduct = WithNull<Product>;
 
-export const getNewProduct = () => {
-    return getItem<NewProduct>("newProduct");
+export const getProduct = () => {
+    return getItem<NewProduct>("product");
 }
 
-export const setNewProduct = (newProduct: NewProduct) => {
-    return setItem<NewProduct>("newProduct", newProduct);
+export const setProduct = (product: NewProduct) => {
+    return setItem<NewProduct>("product", product);
 }
