@@ -43,11 +43,11 @@
 
     &--submit {
         border-radius: var(--small-radius);
-        background-color: var(--gold);
+        background-color: var(--clay);
         color: #fff;
 
         &:hover, &:active {
-            background-color: var(--dark-gold);
+            background-color: var(--dark-clay);
         }
     }
 

@@ -1,10 +1,37 @@
 [
     {
         "id": "001",
-        "surname": "Толстой",
-        "name": "Лев",
-        "secondName": "Николаевич",
-        "fullname": "Лев Николаевич Толстой",
-        "abbreviatedName": "Л. Н. Толстой"
+        "title": "Изделие",
+        "description": [""]
+    },
+    {
+        "id": "002",
+        "title": "Изделие",
+        "description": [""]
+    },
+    {
+        "id": "003",
+        "title": "Изделие",
+        "description": [""]
+    },
+    {
+        "id": "004",
+        "title": "Изделие",
+        "description": [""]
+    },
+    {
+        "id": "005",
+        "title": "Изделие",
+        "description": [""]
+    },
+    {
+        "id": "006",
+        "title": "Изделие",
+        "description": [""]
+    },
+    {
+        "id": "007",
+        "title": "Изделие",
+        "description": [""]
     }
 ]

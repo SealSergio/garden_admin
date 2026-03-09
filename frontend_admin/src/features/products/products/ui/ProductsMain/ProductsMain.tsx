@@ -3,7 +3,7 @@ import { Loader } from "../../../../../shared/components/Loader/Loader";
 import { useGetAllProductsQuery } from "../../api/products";
 import { ProductForm } from "../ProductForm/ProductForm";
 import { ProductListView } from "../ProductsListView/ProductListView";
-import { Filters } from "../ProductsListView/Filters/Filters";
+// import { Filters } from "../ProductsListView/Filters/Filters";
 
 export const ProductsMain: React.FC = () => {
     const { data: productsData, isError: productsIsError, isLoading: productsIsLoading } = useGetAllProductsQuery();
@@ -19,9 +19,9 @@ export const ProductsMain: React.FC = () => {
     if (productsData) {
         return (
             <>
-                <ProductForm
+                {/* <ProductForm
                     products={productsData}
-                />
+                /> */}
                 <div className="section-products">
                     {productsData.length > 0 ? (
                         <ProductListView productList={productsData}/>

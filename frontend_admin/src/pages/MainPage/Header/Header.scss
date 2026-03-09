@@ -1,11 +1,11 @@
 .header {
     width: 100%;
     height: 80px;
-    background-color: var(--light-grey);
+    // background-color: var(--emerald);
 }
 
 .container--header {
-    max-width: 1440px;
+    max-width: 1280px;
     height: 100%;
     margin: 0 auto;
     display: flex;
@@ -14,26 +14,58 @@
     padding: 0 var(--page-padding);
 }
 
-.header__title {
-    margin: 0;
-    color: var(--darkest-grey);
+.header__left {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 15px;
+    height: 48px;
+    max-height: 100%;
+    overflow: hidden;
 
-    &:hover a, &:active a {
-        color: var(--gold);
+    & .header__title {
+        margin: 0;
+        color: var(--darkest-grey);
+
+        &:hover a, &:active a {
+            color: var(--clay);
+        }
+    }
+
+    & img {
+        height: 100%;
+        max-height: 100%;
+        border-radius: 50%;
     }
 }
 
-.header__btns-right {
+.header-menu {
     display: flex;
-    align-items: center;
-    gap: 15px;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+    padding: 12px 18px;
+    background-color: var(--emerald);
+    border-radius: var(--big-radius);
 }
 
-.header__btn {    
+.header-menu__btn {
+    padding: 3px 5px;
+    color: var(--lightest);
+
+    &:hover, &:active {
+        color: var(--clay);
+    }
+}
+
+.header__btn--user {
+    padding: 12px 18px;
+    background-color: var(--emerald);
+    border-radius: var(--big-radius);
     color: var(--darkest-grey);
     font-weight: 500;
 
     &:hover, &:active {
-        color: var(--gold);
+        color: var(--clay);
     }
 }

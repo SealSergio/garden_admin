@@ -34,7 +34,7 @@
 .details-btn {
   width: 100%;
   padding: 8px;
-  background: var(--gold);
+  background: var(--clay);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -42,5 +42,5 @@
   font-weight: 500;
 }
 .details-btn:hover {
-  background-color: var(--dark-gold);
+  background-color: var(--dark-clay);
 }/*# sourceMappingURL=ProductCard.css.map */

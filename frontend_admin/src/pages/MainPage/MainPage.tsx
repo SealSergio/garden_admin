@@ -12,7 +12,7 @@ export const MainPage: React.FC = () => {
         <>
             <Header />
             <div className="container container--admin-inner">
-                <Aside />
+                {/* <Aside /> */}
                 <Provider store={store}>
                     <main className="main">
                         <Routes>
