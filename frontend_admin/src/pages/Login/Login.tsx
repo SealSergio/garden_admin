@@ -1,7 +1,7 @@
 import { FC, FormEventHandler, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { login } from '../../features/auth/api/auth';
-import { queryClient } from '../../app/queryClient';
+import { login } from '../../features/auth/api/auth.js';
+import { queryClient } from '../../app/queryClient.js';
 import "./Login.scss";
 import "../../shared/styles/form.scss";
 

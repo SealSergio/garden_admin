@@ -44,14 +44,21 @@
     justify-content: center;
     align-content: center;
     gap: 20px;
+    height: 48px;
     padding: 12px 18px;
-    background-color: var(--emerald);
+    // background-color: var(--emerald);
+    // background-color: var(--lightest);
+    background-color: #fff;
     border-radius: var(--big-radius);
+    box-shadow: 0 4rem 25rem 0 rgba(0, 0, 0, .08);
 }
 
 .header-menu__btn {
     padding: 3px 5px;
-    color: var(--lightest);
+    // color: var(--lightest);
+    // color: var(--emerald);
+    color: #222;
+    font-weight: 500;
 
     &:hover, &:active {
         color: var(--clay);

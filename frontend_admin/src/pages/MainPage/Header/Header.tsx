@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { logout } from "../../../features/auth/api/auth"; 
 import { useMutation } from "@tanstack/react-query";
-import { queryClient } from "../../../app/queryClient";
+import { logout } from "../../../features/auth/api/auth.js"; 
+import { queryClient } from "../../../app/queryClient.js";
 import "./Header.scss";
 import { Link } from "react-router-dom";
 

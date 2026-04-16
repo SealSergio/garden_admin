@@ -1,10 +1,11 @@
 import { Provider } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { store } from "../../app/providers/store";
-import { Aside } from "./Aside/Aside";
-import { Header } from "./Header/Header";
-import { ProductsMain } from "../../features/products/products/ui/ProductsMain/ProductsMain"; 
-import { Support } from "../../features/support/ui/Support";
+import { store } from "../../app/providers/store.js";
+import { Header } from "./Header/Header.js";
+import { ProductsMain } from "../../features/products/ui/ProductsMain/ProductsMain.js"; 
+import { Support } from "../../features/support/ui/Support.js";
+// import { isOpenProductForm } from "../../shared/hooks/useProductForm.js";
+// import { ProductForm } from "../../features/productForm/ui/ProductForm.js";
 import "./MainPage.scss";
 
 export const MainPage: React.FC = () => {
@@ -12,7 +13,6 @@ export const MainPage: React.FC = () => {
         <>
             <Header />
             <div className="container container--admin-inner">
-                {/* <Aside /> */}
                 <Provider store={store}>
                     <main className="main">
                         <Routes>
@@ -20,6 +20,7 @@ export const MainPage: React.FC = () => {
                             <Route path="/support" element={<Support />}/>
                             <Route index element={<Navigate to="/products" replace />} />
                         </Routes>
+                        {/* {isOpenProductForm && <ProductForm />} */}
                     </main>
                 </Provider>
             </div>
