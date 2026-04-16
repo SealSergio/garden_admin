@@ -1,37 +1,74 @@
 [
     {
         "id": "001",
-        "title": "Изделие",
+        "title": "Лебедь",
+        "price": "25000",
         "description": [""]
     },
     {
         "id": "002",
-        "title": "Изделие",
+        "title": "Утка",
+        "price": "8500",
         "description": [""]
     },
     {
         "id": "003",
-        "title": "Изделие",
+        "title": "Утёнок",
+        "price": "7500",
         "description": [""]
     },
     {
         "id": "004",
-        "title": "Изделие",
+        "title": "Улитка",
+        "price": "8500",
         "description": [""]
     },
     {
         "id": "005",
-        "title": "Изделие",
+        "title": "Черепаха",
+        "price": "8500",
         "description": [""]
     },
     {
         "id": "006",
-        "title": "Изделие",
+        "title": "Черепаха маленькая",
+        "price": "7500",
         "description": [""]
     },
     {
         "id": "007",
-        "title": "Изделие",
+        "title": "Цапля",
+        "price": "15000",
+        "description": [""]
+    },
+    {
+        "id": "008",
+        "title": "Олень",
+        "price": "от 60000",
+        "description": [""]
+    },
+    {
+        "id": "009",
+        "title": "Парящие камни",
+        "price": "от 60000",
+        "description": [""]
+    },
+    {
+        "id": "010",
+        "title": "Домик-подсвечник",
+        "price": "4000",
+        "description": [""]
+    },
+    {
+        "id": "011",
+        "title": "Стик с птичками",
+        "price": "2900",
+        "description": [""]
+    },
+    {
+        "id": "012",
+        "title": "Природная композиция",
+        "price": "22000",
         "description": [""]
     }
 ]
