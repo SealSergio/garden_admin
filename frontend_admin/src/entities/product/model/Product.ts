@@ -4,6 +4,7 @@ export const ProductSchema = z.object({
     id: z.string().length(3),
     title: z.string().min(1),
     price: z.string().min(1),
+    numberOfPhotos: z.number(),
     description: z.array(z.string()).optional(),
 });
 

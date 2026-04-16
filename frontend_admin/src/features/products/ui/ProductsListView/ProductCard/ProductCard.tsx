@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import "./ProductCard.scss";
 import { Product } from "../../../../../entities/product/model/Product.js";
 
@@ -7,15 +7,67 @@ interface ProductCardProps {
 }
 
 export const ProductCard: FC<ProductCardProps> = ({product}) => {
-    function handleClickOnBtnMore () {
+    function handleClickOnBtnEdit () {
         console.log(product)
+    }
+
+    const [slideIndex, setSlideIndex] = useState(0);
+
+    function showPreviousSlide() {
+        let newSlideIndex = slideIndex - 1;
+        if (newSlideIndex === -1) {
+            newSlideIndex = product.numberOfPhotos - 1;
+        }
+        setSlideIndex(newSlideIndex);
+    }
+
+    function showNextSlide() {
+        let newSlideIndex = slideIndex + 1;
+        if (newSlideIndex === product.numberOfPhotos) {
+            newSlideIndex = 0;
+        }
+        setSlideIndex(newSlideIndex);
     }
 
     return (
         <>
-            <div className="product-image">
-                <img src={`../../../../../public/img/products/template.webp`} alt="Изделие"/>
-                {/* <img src={`../../../../../public/img/products/${product.id}.jpg`} alt="Изделие"/> */}
+            <div className="slider__container">
+                <div className="slider">
+                    {product.numberOfPhotos > 0 ?
+                        Array.from({ length: product.numberOfPhotos }, (_, index) => (
+                        <img
+                            key={index}
+                            className="products__img"
+                            style={{ display: index === slideIndex ? 'block' : 'none' }}
+                            src={`../../../../../public/img/products/${product.id}-${index + 1}.webp`}
+                            alt={product.title}
+                        />
+                        ))
+                        : <p className="slider__text">Нет фото</p>
+                    }
+                </div>
+                {product.numberOfPhotos > 1 && 
+                    <>
+                        <button
+                            onClick={showPreviousSlide}
+                            className="slider__button prev-button"
+                            aria-label="Посмотреть предыдущий слайд">
+                            <img
+                                className="slider__button__img"
+                                src="../../../../../public/img/icons/prev-button.png">
+                            </img>
+                        </button>
+                        <button
+                            onClick={showNextSlide}
+                            className="slider__button next-button"
+                            aria-label="Посмотреть следующий слайд">
+                            <img
+                                className="slider__button__img"
+                                src="../../../../../public/img/icons/next-button.png">
+                            </img>
+                        </button>
+                    </>
+                }
             </div>
             <div className="product-details">
                 <div className="product-details__left">
@@ -23,7 +75,7 @@ export const ProductCard: FC<ProductCardProps> = ({product}) => {
                     <h3 className="product-price">{product.price}&nbsp;₽</h3>
                 </div>
                 <div className="product-details__right">
-                    <button onClick={handleClickOnBtnMore} className="details-btn">
+                    <button onClick={handleClickOnBtnEdit} className="edit-btn">
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                             width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000"
                             preserveAspectRatio="xMidYMid meet">

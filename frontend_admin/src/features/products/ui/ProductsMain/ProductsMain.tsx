@@ -16,7 +16,6 @@ export const ProductsMain: React.FC = () => {
     }
 
     if (productsData) {
-        console.log(productsData)
         return (
             <div className="section-products">
                 {productsData.length > 0 ? (
