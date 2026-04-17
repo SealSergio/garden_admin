@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { productsApi } from "../../features/products/api/products.js";
+import { productsApi } from "../../../../api/products.js";
 import productFormReducer from '../../features/productForm/model/productFormSlice.js';
 
 export const store = configureStore({

@@ -1,6 +1,6 @@
 import { ErrorMessage } from "../../../../shared/components/Error/Error.js";
 import { Loader } from "../../../../shared/components/Loader/Loader.js";
-import { useGetAllProductsQuery } from "../../api/products.js";
+import { useGetAllProductsQuery } from "../../../../../../api/products.js";
 // import { ProductForm } from "../../../productForm/ui/ProductForm.js";
 import { ProductListView } from "../ProductsListView/ProductListView.js";
 

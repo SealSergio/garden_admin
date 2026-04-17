@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import TextareaAutosize from "react-textarea-autosize";
 import "./ProductForm.scss";
 import { ProductList, ProductSchema, Product } from '../../../entities/product/model/Product.js';
-import { getProduct, setProduct } from '../../products/api/localStorage.js';
+import { getProduct, setProduct } from '../../../../../api/localStorage.js';
 import { useProductForm } from '../hooks/useProductForm.js';
 
 export const ProductForm = () => {
@@ -21,11 +21,11 @@ export const ProductForm = () => {
         if (isInitialMount.current) {
             isInitialMount.current = false;
         } else {
-            setProduct({
-                id: productId,
-                title: productTitle,
-                description: productDescription
-            });
+            // setProduct({
+            //     id: productId,
+            //     title: productTitle,
+            //     description: productDescription
+            // });
         }
     }, [productTitle, productDescription ]);
 
@@ -79,56 +79,58 @@ export const ProductForm = () => {
 
     if (isOpen) return (
         <div className="product-form-wrapper">
-            <h2 className="product-form__title">Добавить изделие</h2>
-            <form className="product-form" onSubmit={handleSubmit(onSubmit)}>
+            <div className="product-form-inner">
                 <div className="product-form__half product-form__half--left">
-                    <label className="form__label product-form__label">
-                        <span className="form__label__title">Название</span>
-                        <input
-                            className="form__input product-form__input"
-                            type="text" placeholder="Название"
-                            {...register("title")}
-                            value={productTitle || ""}
-                            onInput={(event) => setProductTitle(event.currentTarget.value)}
-                        />
-                        {errors.title && <p>Название должно содержать не менее 1 символа</p>}
-                    </label>
-                    <label className="form__label product-form__label">
-                        <span className="form__label__title">Описание</span>
-                        <div className="product-form__description">
-                            {productDescription?.map((text, index)=> (
-                                <input
-                                    className="form__input product-form__input"
-                                    key={index}
-                                    placeholder="Текст"
-                                    onKeyDown={(event) => handleKeyDown(event)}
-                                    onInput={(event) => setDescription(event.currentTarget.value, index)}
-                                    value={text || ""}
-                                    >
-                                </input>
-                            ))}
-                        </div>
-                        <button
-                            className="form__btn product-form__btn-add"
-                            type="button"
-                            onClick={() => createNewString()}>
-                            +
-                        </button>
-                    </label>
-                    <button
-                        className="form__btn form__btn--submit"
-                        type="submit"
-                        onClick={() => console.log(Object.keys(errors).length > 0 ? errors : "Ошибок нет")}>
-                        Сохранить
-                    </button>
-                    <button className="form__btn form__btn--reset" type="button">
-                        Удалить
-                    </button>
+                    
                 </div>
-                {/* <div className="product-form__half">
-                    <div className="product-form__img">Загрузите фото</div>
-                </div> */}
-            </form>
+                <div className="product-form__half product-form__half--right">
+                    <h2 className="product-form__title">Добавить изделие</h2>
+                    <form className="product-form" onSubmit={handleSubmit(onSubmit)}>
+                        <label className="form__label product-form__label">
+                            <span className="form__label__title">Название</span>
+                            <input
+                                className="form__input product-form__input"
+                                type="text" placeholder="Название"
+                                {...register("title")}
+                                value={productTitle || ""}
+                                onInput={(event) => setProductTitle(event.currentTarget.value)}
+                            />
+                            {errors.title && <p>Название должно содержать не менее 1 символа</p>}
+                        </label>
+                        <label className="form__label product-form__label">
+                            <span className="form__label__title">Описание</span>
+                            <div className="product-form__description">
+                                {productDescription?.map((text, index)=> (
+                                    <input
+                                        className="form__input product-form__input"
+                                        key={index}
+                                        placeholder="Текст"
+                                        onKeyDown={(event) => handleKeyDown(event)}
+                                        onInput={(event) => setDescription(event.currentTarget.value, index)}
+                                        value={text || ""}
+                                        >
+                                    </input>
+                                ))}
+                            </div>
+                            <button
+                                className="form__btn product-form__btn-add"
+                                type="button"
+                                onClick={() => createNewString()}>
+                                +
+                            </button>
+                        </label>
+                        <button
+                            className="form__btn form__btn--submit"
+                            type="submit"
+                            onClick={() => console.log(Object.keys(errors).length > 0 ? errors : "Ошибок нет")}>
+                            Сохранить
+                        </button>
+                        <button className="form__btn form__btn--reset" type="button">
+                            Удалить
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
