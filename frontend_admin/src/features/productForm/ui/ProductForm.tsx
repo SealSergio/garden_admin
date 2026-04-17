@@ -1,12 +1,13 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import TextareaAutosize from "react-textarea-autosize";
 import "./ProductForm.scss";
 import { ProductList, ProductSchema, Product } from '../../../entities/product/model/Product.js';
 import { getProduct, setProduct } from '../../../../../api/localStorage.js';
 import { useProductForm } from '../hooks/useProductForm.js';
+import { createSlider } from '../../../shared/components/Slider/Slider.js';
 
 export const ProductForm = () => {
     const { isOpen, data: product, action, closeForm } = useProductForm();
@@ -74,6 +75,9 @@ export const ProductForm = () => {
             console.error('Ошибка:', error);
         });
     };
+
+    const slider = createSlider({ product });
+    // const slider = product ? createSlider({ product }) : null;
     
     if (!isOpen) return null;
 
@@ -81,7 +85,9 @@ export const ProductForm = () => {
         <div className="product-form-wrapper">
             <div className="product-form-inner">
                 <div className="product-form__half product-form__half--left">
-                    
+                    {slider ? slider : (
+                        <p className="">Нет фото</p>
+                    )} 
                 </div>
                 <div className="product-form__half product-form__half--right">
                     <h2 className="product-form__title">Добавить изделие</h2>

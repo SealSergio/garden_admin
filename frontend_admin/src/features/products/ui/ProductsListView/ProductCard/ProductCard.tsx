@@ -1,7 +1,8 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import "./ProductCard.scss";
 import { Product } from "../../../../../entities/product/model/Product.js";
 import { useProductForm } from "../../../../productForm/hooks/useProductForm.js";
+import { createSlider } from "../../../../../shared/components/Slider/Slider.js";
 
 interface ProductCardProps {
   product: Product;
@@ -14,64 +15,11 @@ export const ProductCard: FC<ProductCardProps> = ({product}) => {
         openForm('edit', product);
     }
 
-    const [slideIndex, setSlideIndex] = useState(0);
-
-    function showPreviousSlide() {
-        let newSlideIndex = slideIndex - 1;
-        if (newSlideIndex === -1) {
-            newSlideIndex = product.numberOfPhotos - 1;
-        }
-        setSlideIndex(newSlideIndex);
-    }
-
-    function showNextSlide() {
-        let newSlideIndex = slideIndex + 1;
-        if (newSlideIndex === product.numberOfPhotos) {
-            newSlideIndex = 0;
-        }
-        setSlideIndex(newSlideIndex);
-    }
+    const slider = createSlider({ product });
 
     return (
         <>
-            <div className="slider__container">
-                <div className="slider">
-                    {product.numberOfPhotos > 0 ?
-                        Array.from({ length: product.numberOfPhotos }, (_, index) => (
-                        <img
-                            key={index}
-                            className="products__img"
-                            style={{ display: index === slideIndex ? 'block' : 'none' }}
-                            src={`../../../../../public/img/products/${product.id}-${index + 1}.webp`}
-                            alt={product.title}
-                        />
-                        ))
-                        : <p className="slider__text">Нет фото</p>
-                    }
-                </div>
-                {product.numberOfPhotos > 1 && 
-                    <>
-                        <button
-                            onClick={showPreviousSlide}
-                            className="slider__button prev-button"
-                            aria-label="Посмотреть предыдущий слайд">
-                            <img
-                                className="slider__button__img"
-                                src="../../../../../public/img/icons/prev-button.png">
-                            </img>
-                        </button>
-                        <button
-                            onClick={showNextSlide}
-                            className="slider__button next-button"
-                            aria-label="Посмотреть следующий слайд">
-                            <img
-                                className="slider__button__img"
-                                src="../../../../../public/img/icons/next-button.png">
-                            </img>
-                        </button>
-                    </>
-                }
-            </div>
+            {slider}
             <div className="product-details">
                 <div className="product-details__left">
                     <h3 className="product-title">{product.title}</h3>
