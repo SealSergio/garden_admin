@@ -1,14 +1,17 @@
 import { FC, useState } from "react";
 import "./ProductCard.scss";
 import { Product } from "../../../../../entities/product/model/Product.js";
+import { useProductForm } from "../../../../productForm/hooks/useProductForm.js";
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard: FC<ProductCardProps> = ({product}) => {
+    const { openForm } = useProductForm();
+
     function handleClickOnBtnEdit () {
-        console.log(product)
+        openForm('edit', product);
     }
 
     const [slideIndex, setSlideIndex] = useState(0);

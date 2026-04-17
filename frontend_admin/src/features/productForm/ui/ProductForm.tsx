@@ -6,13 +6,11 @@ import { Link } from 'react-router-dom';
 import "./ProductForm.scss";
 import { ProductList, ProductSchema, Product } from '../../../entities/product/model/Product.js';
 import { getProduct, setProduct } from '../../products/api/localStorage.js';
+import { useProductForm } from '../hooks/useProductForm.js';
 
-interface ProductFormProps {
-    product: Product,
-    action: "create" | "edit",
-}
+export const ProductForm = () => {
+    const { isOpen, data: product, action, closeForm } = useProductForm();
 
-export const ProductForm: React.FC<ProductFormProps> = ({ product, action }) => {
     const productId = product?.id || null;
     const [productTitle, setProductTitle] = useState<string | null>(product?.title || null);
     const [productDescription, setProductDescription] = useState<string[]>(product?.description || [""]);
@@ -76,8 +74,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({ product, action }) => 
             console.error('Ошибка:', error);
         });
     };
+    
+    if (!isOpen) return null;
 
-    return (
+    if (isOpen) return (
         <div className="product-form-wrapper">
             <h2 className="product-form__title">Добавить изделие</h2>
             <form className="product-form" onSubmit={handleSubmit(onSubmit)}>

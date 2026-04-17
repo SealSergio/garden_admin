@@ -4,11 +4,10 @@ import { store } from "../../app/providers/store.js";
 import { Header } from "./Header/Header.js";
 import { ProductsMain } from "../../features/products/ui/ProductsMain/ProductsMain.js"; 
 import { Support } from "../../features/support/ui/Support.js";
-// import { isOpenProductForm } from "../../shared/hooks/useProductForm.js";
-// import { ProductForm } from "../../features/productForm/ui/ProductForm.js";
+import { ProductForm } from "../../features/productForm/ui/ProductForm.js";
 import "./MainPage.scss";
 
-export const MainPage: React.FC = () => {
+export const MainPage: React.FC = () => {    
     return (
         <>
             <Header />
@@ -20,7 +19,7 @@ export const MainPage: React.FC = () => {
                             <Route path="/support" element={<Support />}/>
                             <Route index element={<Navigate to="/products" replace />} />
                         </Routes>
-                        {/* {isOpenProductForm && <ProductForm />} */}
+                        <ProductForm />
                     </main>
                 </Provider>
             </div>
