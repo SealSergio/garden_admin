@@ -4,7 +4,7 @@ import { store } from "../../app/providers/store.js";
 import { Header } from "./Header/Header.js";
 import { ProductsMain } from "../../features/products/ui/ProductsMain/ProductsMain.js"; 
 import { Support } from "../../features/support/ui/Support.js";
-import { ProductForm } from "../../features/productForm/ui/ProductForm.js";
+import { ProductFormWrapper } from "../../features/productForm/ui/ProductFormWrapper.js";
 import "./MainPage.scss";
 
 export const MainPage: React.FC = () => {    
@@ -19,7 +19,7 @@ export const MainPage: React.FC = () => {
                             <Route path="/support" element={<Support />}/>
                             <Route index element={<Navigate to="/products" replace />} />
                         </Routes>
-                        <ProductForm />
+                        <ProductFormWrapper />
                     </main>
                 </Provider>
             </div>
